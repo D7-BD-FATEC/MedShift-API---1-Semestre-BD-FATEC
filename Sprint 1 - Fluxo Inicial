@@ -1,0 +1,26 @@
+Var
+
+   nmedicos : inteiro
+
+Inicio
+
+   Escreva ("Qual a quantidade de médicos nesse plantão?: ")
+   Leia (nmedicos)
+
+   enquanto (nmedicos <= 0) ou (nmedicos > 30) faca
+      Se (nmedicos <= 0) entao
+         Escreval ("O mínimo aceito deve ser maior que 0!!")
+         Escreva ("Digite um valor válido: ")
+         Leia (nmedicos)
+      Senao
+         Se (nmedicos > 30) entao
+            Escreval ("O valor máximo aceito é 30!!")
+            Escreva ("Digite um valor válido: ")
+            Leia (nmedicos)
+         fimse
+      fimse
+   fimenquanto
+
+   Escreva ("O número de médicos nesse plantão é", nmedicos)
+
+Fimalgoritmo
