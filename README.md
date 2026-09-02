@@ -29,10 +29,10 @@ escalas por meio de regras claras de validação.
 
 | Integrante | Papel |
 | --- | --- |
-| Lucas Augusto | Product Owner |
-| Fernanda Martins | Scrum Master |
-| Augusto | Desenvolvedor |
-| Sara Andrade | Desenvolvedor |
-| Karina | Desenvolvedor |
-| Allan Almeida | Desenvolvedor |
-| Arthur Peres | Desenvolvedor |
+| **Lucas Augusto** | Product Owner |
+| **Fernanda Martins** | Scrum Master |
+| **Augusto** | Desenvolvedor |
+| **Sara Andrade** | Desenvolvedor |
+| **Karina** | Desenvolvedor |
+| **Allan Almeida** | Desenvolvedor |
+| **Arthur Peres** | Desenvolvedor |
