@@ -1,4 +1,4 @@
-# MedShift-API-BD-FATEC
+# MedShift - API Banco de Dados (FATEC SJC)
 
 Repositório criado para o desenvolvimento de um sistema para criação de escalas de plantões médicos no VisualG.
 
