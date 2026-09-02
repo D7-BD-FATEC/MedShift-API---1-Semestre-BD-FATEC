@@ -41,8 +41,6 @@ e à decisão de publicação do plantão.
 
 # User Stories da Sprint 1
 
-# User Stories da Sprint 1
-
 ## US01 — Selecionar o turno do plantão
 
 **Como** coordenador de escala,  
