@@ -2,12 +2,12 @@
 
 Repositório criado para o desenvolvimento de um sistema para criação de escalas de plantões médicos no VisualG.
 
-**Feito por alunos do 1º Semetre 2026/2 do curso de Banco de Dados da FATEC de São José dos Campos.**
+**Feito por alunos do 1º Semestre 2026/2 do curso de Banco de Dados da FATEC de São José dos Campos.**
 
 ## Sobre o projeto
 
 O MedShift é um sistema desenvolvido para apoiar a análise e
-validação de plantões médicos do Hospital fictíco Santa Aurora.
+validação de plantões médicos do Hospital fictício Santa Aurora.
 
 O sistema tem como objetivo auxiliar a coordenação hospitalar
 a identificar se um plantão possui cobertura adequada e apontar
