@@ -28,7 +28,7 @@ escalas por meio de regras claras de validação.
 ## Equipe
 
 | Integrante | Papel |
-
+| --- | --- |
 | Lucas Augusto | Product Owner |
 | Fernanda Martins | Scrum Master |
 | Augusto | Desenvolvedor |
