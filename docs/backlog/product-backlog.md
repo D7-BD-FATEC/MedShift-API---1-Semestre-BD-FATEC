@@ -1,42 +1,45 @@
-# Product Backlog — MedShift
-
-## Sobre o Product Backlog
-
-O Product Backlog reúne as necessidades, funcionalidades e melhorias
-identificadas para o desenvolvimento do sistema MedShift.
-
-Os itens são organizados de acordo com sua prioridade e com o valor
-que entregam para a coordenação hospitalar.
-
-As User Stories apresentadas neste documento foram elaboradas pela equipe
-a partir das necessidades e regras de negócio apresentadas pelo cliente
-no Caderno do Estudante.
-
----
-
-# Sprint 1 — Análise de um Plantão
-
-## Objetivo da Sprint
-
-Permitir que a coordenação hospitalar analise um plantão por vez
-e descubra se ele possui a cobertura mínima necessária para ser
-publicado, informando claramente os problemas encontrados.
-
----
-
 # Product Backlog
 
-| ID | User Story | Prioridade | Sprint |
-|---|---|---|---|
-| US01 | Selecionar o turno do plantão | Alta | Sprint 1 |
-| US02 | Informar a quantidade de profissionais | Alta | Sprint 1 |
-| US03 | Validar as quantidades informadas | Alta | Sprint 1 |
-| US04 | Verificar a cobertura mínima do plantão | Alta | Sprint 1 |
-| US05 | Informar se o plantão pode ser publicado | Alta | Sprint 1 |
-| US06 | Informar o motivo da reprovação do plantão | Alta | Sprint 1 |
-| US07 | Tratar escolhas inválidas | Alta | Sprint 1 |
+## Priorização do Product Backlog
+
+| Ordem | ID | User Story | Prioridade | Sprint |
+|---:|---|---|---|---|
+| 1 | US04 | Verificar a cobertura mínima do plantão | Crítica | Sprint 1 |
+| 2 | US05 | Informar se o plantão pode ser publicado | Crítica | Sprint 1 |
+| 3 | US06 | Informar o motivo da reprovação do plantão | Crítica | Sprint 1 |
+| 4 | US02 | Informar a quantidade de profissionais | Alta | Sprint 1 |
+| 5 | US01 | Selecionar o turno do plantão | Alta | Sprint 1 |
+| 6 | US03 | Validar as quantidades informadas | Alta | Sprint 1 |
+| 7 | US07 | Tratar escolhas inválidas | Média | Sprint 1 |
+
+### Critério de Priorização
+
+A priorização do Product Backlog foi definida considerando principalmente
+o valor de negócio entregue por cada User Story para o objetivo da Sprint 1.
+
+As histórias **US04, US05 e US06** receberam prioridade **Crítica**, pois
+estão diretamente relacionadas à principal necessidade apresentada pelo
+cliente: analisar a cobertura de um plantão, determinar se ele pode ser
+publicado e informar claramente o motivo quando a publicação não for possível.
+
+As histórias **US01, US02 e US03** receberam prioridade **Alta**, pois
+fornecem as informações e validações necessárias para que a análise do
+plantão seja realizada corretamente.
+
+A **US07** recebeu prioridade **Média**, pois o tratamento de escolhas
+inválidas é importante para a confiabilidade e facilidade de uso do sistema,
+mas possui menor valor de negócio quando comparado à análise da cobertura
+e à decisão de publicação do plantão.
+
+> **Observação:** a prioridade representa o valor de negócio da User Story
+> e não necessariamente a ordem técnica de implementação. Algumas histórias
+> de prioridade Alta podem precisar ser desenvolvidas antes das histórias
+> de prioridade Crítica por serem dependências necessárias para o funcionamento
+> da análise.
 
 ---
+
+# User Stories da Sprint 1
 
 # User Stories da Sprint 1
 
