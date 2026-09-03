@@ -25,6 +25,35 @@ em determinados turnos, ausência de especialidades e retrabalho.
 O MedShift busca auxiliar a coordenação na análise dessas
 escalas por meio de regras claras de validação.
 
+## Tecnologias Utilizadas
+
+- VisuAlg
+- Git
+- GitHub
+- Scrum
+
+## Sprint 1
+
+### Meta da Sprint
+
+Permitir que a coordenação hospitalar analise um plantão médico,
+verifique se há cobertura mínima de profissionais por especialidade
+e receba uma conclusão clara informando se o plantão pode ou não
+ser publicado.
+
+### Documentação
+
+- [Product Backlog](docs/backlog/product-backlog.md)
+- [Sprint Backlog](docs/sprint-1/sprint-backlog.md)
+- [Definition of Ready](docs/sprint-1/DoR.md)
+- [Definition of Done](docs/sprint-1/DoD.md)
+- [Cenários de Teste](docs/sprint-1/testes.md)
+- [Registro de Decisões](docs/sprint-1/decisoes.md)
+- [Estratégia de Branches](docs/branch-strategy.md)
+- [Padrão de Commits](docs/commit-pattern.md)
+- [Manual de Instalação](docs/manual-instalacao.md)
+- [Manual do Usuário](docs/manual-usuario.md)
+
 ## Equipe
 
 | Integrante | Papel |
