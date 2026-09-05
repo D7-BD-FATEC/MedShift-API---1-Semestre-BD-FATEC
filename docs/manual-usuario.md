@@ -58,7 +58,7 @@ docs/manual-instalacao.md
 
 ## 5. Escopo da Sprint 1
 
-Durante a Sprint 1, o MedShift realiza a análise de um plantão por vez.
+Durante a Sprint 1, o MedShift realiza a análise de um plantão por execução.
 
 O sistema não possui, nesta etapa:
 
@@ -68,7 +68,7 @@ O sistema não possui, nesta etapa:
 - interface gráfica;
 - continuidade automática dos dados entre execuções.
 
-O objetivo da Sprint 1 é verificar se um determinado plantão possui cobertura mínima adequada.
+O objetivo da Sprint 1 é verificar se um determinado plantão possui cobertura mínima adequada e informar se ele pode ou não ser publicado.
 
 ---
 
@@ -106,7 +106,7 @@ Nesse caso, o turno selecionado será Manhã.
 
 ## 7. Opção de turno inválida
 
-Caso seja informada uma opção que não corresponda a nenhum dos turnos disponíveis, o sistema deverá sinalizar o erro.
+Caso seja informada uma opção que não corresponda a nenhum dos turnos disponíveis, o sistema deverá informar claramente o erro.
 
 Exemplo:
 
@@ -123,10 +123,21 @@ Opção: 9
 Resultado esperado:
 
 ```text
-Opção inválida.
+ERRO: turno inválido.
+
+Escolha uma das opções disponíveis:
+1 - Manhã
+2 - Tarde
+3 - Noite
+
+Análise encerrada.
 ```
 
-O sistema não deverá considerar uma opção inexistente como válida.
+A opção inválida não poderá ser utilizada na análise.
+
+Durante a Sprint 1, após a identificação desse erro, a execução atual será encerrada.
+
+Para realizar uma nova análise, o usuário deverá executar novamente o programa.
 
 ---
 
@@ -173,7 +184,7 @@ Portanto, para qualquer um dos três turnos, o plantão deverá possuir no míni
 1 Cirurgião
 ```
 
-Todas as condições precisam ser atendidas para que o plantão possa ser considerado adequado.
+Todas as condições precisam ser atendidas para que o plantão possa ser considerado com cobertura adequada.
 
 ---
 
@@ -212,8 +223,14 @@ Cirurgiões: 1
 ### Resultado esperado
 
 ```text
-Plantão com cobertura adequada.
-Plantão pode ser publicado.
+===== RESULTADO DA ANÁLISE =====
+
+Turno analisado: MANHÃ
+
+Cobertura mínima: ATINGIDA
+
+Conclusão:
+Plantão PODE ser publicado.
 ```
 
 O mesmo comportamento deverá ocorrer quando as quantidades forem maiores que o mínimo exigido, desde que estejam dentro dos limites considerados válidos pelo sistema.
@@ -237,8 +254,14 @@ Como todas as quantidades são iguais ou superiores à cobertura mínima, o plan
 ### Resultado esperado
 
 ```text
-Plantão com cobertura adequada.
-Plantão pode ser publicado.
+===== RESULTADO DA ANÁLISE =====
+
+Turno analisado: NOITE
+
+Cobertura mínima: ATINGIDA
+
+Conclusão:
+Plantão PODE ser publicado.
 ```
 
 ---
@@ -260,8 +283,20 @@ A quantidade mínima de Clínicos Gerais é 2.
 ### Resultado esperado
 
 ```text
-Plantão não pode ser publicado.
-Quantidade insuficiente de Clínicos Gerais.
+===== RESULTADO DA ANÁLISE =====
+
+Turno analisado: TARDE
+
+Cobertura mínima: NÃO ATINGIDA
+
+Especialidade com cobertura insuficiente:
+Clínico Geral
+
+Quantidade necessária: 2
+Quantidade informada: 1
+
+Conclusão:
+Plantão NÃO pode ser publicado.
 ```
 
 ---
@@ -280,11 +315,25 @@ Cirurgiões: 1
 
 A quantidade mínima de Pediatras é 1.
 
+A quantidade `0` é uma entrada válida. Nesse caso, significa que nenhum Pediatra está disponível para o plantão.
+
 ### Resultado esperado
 
 ```text
-Plantão não pode ser publicado.
-Quantidade insuficiente de Pediatras.
+===== RESULTADO DA ANÁLISE =====
+
+Turno analisado: MANHÃ
+
+Cobertura mínima: NÃO ATINGIDA
+
+Especialidade com cobertura insuficiente:
+Pediatra
+
+Quantidade necessária: 1
+Quantidade informada: 0
+
+Conclusão:
+Plantão NÃO pode ser publicado.
 ```
 
 ---
@@ -303,20 +352,34 @@ Cirurgiões: 0
 
 A quantidade mínima de Cirurgiões é 1.
 
+A quantidade `0` é válida e representa a ausência de Cirurgiões disponíveis para aquele plantão.
+
 ### Resultado esperado
 
 ```text
-Plantão não pode ser publicado.
-Quantidade insuficiente de Cirurgiões.
+===== RESULTADO DA ANÁLISE =====
+
+Turno analisado: NOITE
+
+Cobertura mínima: NÃO ATINGIDA
+
+Especialidade com cobertura insuficiente:
+Cirurgião
+
+Quantidade necessária: 1
+Quantidade informada: 0
+
+Conclusão:
+Plantão NÃO pode ser publicado.
 ```
 
 ---
 
 ## 16. Plantão com mais de uma especialidade abaixo do mínimo
 
-Caso mais de uma especialidade esteja abaixo da cobertura mínima, o sistema deverá deixar claro que o plantão não pode ser publicado.
+Caso mais de uma especialidade esteja abaixo da cobertura mínima, o sistema deverá informar todas as especialidades insuficientes.
 
-Exemplo:
+### Exemplo de entrada
 
 ```text
 Turno: Manhã
@@ -326,24 +389,36 @@ Pediatras: 0
 Cirurgiões: 1
 ```
 
-O sistema deverá indicar os problemas de cobertura identificados de acordo com a implementação adotada pela equipe.
-
-Exemplo de saída possível:
+### Resultado esperado
 
 ```text
-Plantão não pode ser publicado.
+===== RESULTADO DA ANÁLISE =====
 
-Quantidade insuficiente de Clínicos Gerais.
-Quantidade insuficiente de Pediatras.
+Turno analisado: MANHÃ
+
+Cobertura mínima: NÃO ATINGIDA
+
+Especialidades com cobertura insuficiente:
+
+Clínico Geral
+Quantidade necessária: 2
+Quantidade informada: 1
+
+Pediatra
+Quantidade necessária: 1
+Quantidade informada: 0
+
+Conclusão:
+Plantão NÃO pode ser publicado.
 ```
 
-O requisito principal é que o usuário consiga compreender o motivo pelo qual o plantão foi reprovado.
+O sistema deverá apresentar todas as especialidades que não atingirem a cobertura mínima para que a coordenação compreenda claramente o motivo da reprovação.
 
 ---
 
 ## 17. Quantidades negativas
 
-Quantidades negativas de profissionais são inválidas.
+Quantidades negativas de profissionais são inválidas e não poderão ser utilizadas na análise.
 
 Exemplo:
 
@@ -351,73 +426,110 @@ Exemplo:
 Quantidade de Clínicos Gerais: -1
 ```
 
-O sistema deverá impedir ou sinalizar a operação.
-
-Exemplo de resultado:
+### Resultado esperado
 
 ```text
-Quantidade inválida.
+ERRO: quantidade inválida.
+
+A quantidade de profissionais não pode ser negativa.
+
+Análise encerrada.
 ```
 
-Uma quantidade negativa não poderá ser utilizada na análise do plantão.
+Após identificar uma quantidade negativa, o sistema deverá:
+
+1. informar claramente o erro;
+2. impedir que o valor seja utilizado;
+3. encerrar a análise atual.
+
+A quantidade `0` é válida, pois pode representar a ausência de profissionais disponíveis em determinada especialidade.
 
 ---
 
 ## 18. Quantidade máxima
 
-Valores excessivamente altos também podem representar erro de digitação.
+Valores excessivamente altos podem representar erros de digitação.
 
-Por esse motivo, o projeto prevê a definição de uma quantidade máxima plausível de profissionais.
+A equipe propõe o limite máximo de **30 profissionais por especialidade em um único plantão**.
 
-O valor deverá ser proposto pela equipe e validado com o cliente/P2.
+A proposta considera que o Hospital Santa Aurora é uma instituição de médio porte e que as coberturas mínimas exigidas na Sprint 1 são significativamente inferiores a esse valor.
 
-Enquanto esse valor não estiver formalmente validado, ele não deverá ser tratado na documentação como uma regra definitiva.
+Dessa forma, a equipe considera que quantidades superiores a 30 profissionais de uma mesma especialidade em um único plantão podem indicar um possível erro de digitação.
 
-Após a validação, esta seção deverá ser atualizada.
-
-### Valor máximo validado
+### Limite máximo proposto
 
 ```text
-A definir com o cliente/P2.
+30 profissionais por especialidade
 ```
+
+Exemplos considerando a proposta:
+
+```text
+0  → válido
+1  → válido
+30 → válido
+31 → inválido
+```
+
+**Status:** Pendente de validação pelo cliente/P2.
+
+Enquanto o cliente/P2 não validar formalmente esse valor, o limite de 30 deverá ser tratado como uma proposta da equipe e não como uma regra definitiva do produto.
+
+Após a validação, esta seção deverá ser atualizada para registrar o limite como regra aprovada.
 
 ---
 
 ## 19. Mensagens apresentadas pelo sistema
 
-As mensagens apresentadas ao usuário deverão ser claras e permitir a compreensão do resultado.
+As mensagens apresentadas ao usuário deverão ser claras e permitir a compreensão do resultado da análise.
 
-Exemplos de mensagens possíveis:
+Ao concluir normalmente uma análise, o sistema deverá informar:
 
-```text
-Plantão pode ser publicado.
-```
+- o turno analisado;
+- se a cobertura mínima foi atingida ou não;
+- a especialidade ou as especialidades insuficientes, quando houver;
+- a quantidade necessária e a quantidade informada para cada especialidade insuficiente;
+- se o plantão pode ou não ser publicado.
 
-```text
-Plantão não pode ser publicado.
-```
-
-```text
-Quantidade insuficiente de Clínicos Gerais.
-```
+### Exemplo de aprovação
 
 ```text
-Quantidade insuficiente de Pediatras.
+Turno analisado: MANHÃ
+
+Cobertura mínima: ATINGIDA
+
+Conclusão:
+Plantão PODE ser publicado.
 ```
+
+### Exemplo de reprovação
 
 ```text
-Quantidade insuficiente de Cirurgiões.
+Turno analisado: MANHÃ
+
+Cobertura mínima: NÃO ATINGIDA
+
+Especialidade com cobertura insuficiente:
+Pediatra
+
+Quantidade necessária: 1
+Quantidade informada: 0
+
+Conclusão:
+Plantão NÃO pode ser publicado.
 ```
+
+### Exemplo de entrada inválida
 
 ```text
-Quantidade inválida.
+ERRO: quantidade inválida.
+
+A quantidade de profissionais não pode ser negativa.
+
+Análise encerrada.
 ```
 
-```text
-Opção inválida.
-```
-
-A redação exata poderá variar conforme a implementação, desde que o significado seja apresentado de forma clara.
+A redação exata das mensagens poderá variar durante a implementação, desde que todas as informações obrigatórias sejam apresentadas de forma clara.
 
 ---
 
@@ -461,8 +573,14 @@ Todas as condições foram atendidas.
 ### Resultado esperado
 
 ```text
-Plantão com cobertura adequada.
-Plantão pode ser publicado.
+===== RESULTADO DA ANÁLISE =====
+
+Turno analisado: MANHÃ
+
+Cobertura mínima: ATINGIDA
+
+Conclusão:
+Plantão PODE ser publicado.
 ```
 
 ---
@@ -507,8 +625,20 @@ A condição referente aos Cirurgiões não foi atendida.
 ### Resultado esperado
 
 ```text
-Plantão não pode ser publicado.
-Quantidade insuficiente de Cirurgiões.
+===== RESULTADO DA ANÁLISE =====
+
+Turno analisado: NOITE
+
+Cobertura mínima: NÃO ATINGIDA
+
+Especialidade com cobertura insuficiente:
+Cirurgião
+
+Quantidade necessária: 1
+Quantidade informada: 0
+
+Conclusão:
+Plantão NÃO pode ser publicado.
 ```
 
 ---
@@ -525,10 +655,16 @@ Informe a quantidade de Clínicos Gerais:
 ### Resultado esperado
 
 ```text
-Quantidade inválida.
+ERRO: quantidade inválida.
+
+A quantidade de profissionais não pode ser negativa.
+
+Análise encerrada.
 ```
 
 O sistema não deverá utilizar o valor negativo para realizar a análise.
+
+Após identificar o erro, a execução atual será encerrada.
 
 ---
 
@@ -549,18 +685,31 @@ Opção: 7
 ### Resultado esperado
 
 ```text
-Opção inválida.
+ERRO: turno inválido.
+
+Escolha uma das opções disponíveis:
+1 - Manhã
+2 - Tarde
+3 - Noite
+
+Análise encerrada.
 ```
+
+A opção inválida não deverá ser utilizada na análise.
 
 ---
 
 ## 24. Nova análise
 
-Durante a Sprint 1, cada análise considera um plantão por vez.
+Durante a Sprint 1, cada execução do MedShift realizará a análise de um plantão.
 
-Caso o sistema esteja configurado para finalizar após uma análise, será necessário executar novamente o algoritmo para analisar outro plantão.
+Após a conclusão da análise, o programa poderá ser encerrado.
 
-A repetição automática de análises na mesma execução poderá ser implementada caso a equipe utilize estruturas de repetição, mas não é uma exigência inicial da Sprint 1.
+Para analisar outro plantão, o usuário deverá executar novamente o algoritmo.
+
+A realização de várias análises durante uma única execução não é requisito obrigatório da Sprint 1.
+
+A funcionalidade poderá ser adicionada futuramente por meio de estruturas de repetição, caso a equipe decida implementá-la.
 
 ---
 
@@ -578,14 +727,17 @@ Para realizar uma nova análise, os dados deverão ser inseridos novamente.
 
 | Situação | Resultado esperado |
 |---|---|
-| Clínicos >= 2, Pediatras >= 1 e Cirurgiões >= 1 | Plantão pode ser publicado |
-| Clínicos < 2 | Plantão não pode ser publicado |
-| Pediatras < 1 | Plantão não pode ser publicado |
-| Cirurgiões < 1 | Plantão não pode ser publicado |
-| Quantidade negativa | Entrada inválida |
-| Quantidade acima do limite validado | Entrada inválida |
-| Turno inexistente | Opção inválida |
-| Todos os dados válidos | Sistema realiza a análise |
+| Clínicos >= 2, Pediatras >= 1 e Cirurgiões >= 1 | Cobertura atingida e plantão pode ser publicado |
+| Clínicos < 2 | Cobertura não atingida e plantão não pode ser publicado |
+| Pediatras < 1 | Cobertura não atingida e plantão não pode ser publicado |
+| Cirurgiões < 1 | Cobertura não atingida e plantão não pode ser publicado |
+| Quantidade igual a 0 | Entrada válida e utilizada na análise |
+| Quantidade negativa | Entrada inválida e análise encerrada |
+| Quantidade acima do limite máximo validado | Entrada inválida e análise encerrada |
+| Turno inexistente | Opção inválida e análise encerrada |
+| Todos os dados válidos | Sistema realiza normalmente a análise |
+
+O limite máximo atualmente proposto pela equipe é de 30 profissionais por especialidade, porém permanece pendente de validação pelo cliente/P2.
 
 ---
 
@@ -598,7 +750,12 @@ Durante a Sprint Review, a equipe deverá estar preparada para demonstrar pelo m
 3. uma tentativa de informar um dado impossível;
 4. uma tentativa de selecionar uma opção inválida.
 
-O sistema deverá executar esses cenários sem necessidade de alteração do código-fonte durante a demonstração.
+Caso o limite máximo proposto seja validado antes da Review, a equipe também poderá demonstrar:
+
+5. uma quantidade exatamente igual ao limite máximo;
+6. uma quantidade superior ao limite máximo.
+
+O sistema deverá executar os diferentes cenários sem necessidade de alteração do código-fonte durante a demonstração.
 
 ---
 
@@ -616,13 +773,14 @@ Esse documento contém os dados de entrada, resultados esperados e status dos ce
 
 ## 29. Limitações conhecidas da Sprint 1
 
-As seguintes funcionalidades não fazem parte do escopo desta Sprint:
+As seguintes funcionalidades não fazem parte do escopo obrigatório desta Sprint:
 
 - cadastro de médicos por nome;
 - cadastro de CRM;
 - armazenamento permanente dos dados;
 - consulta de histórico;
 - análise de múltiplos plantões simultaneamente;
+- realização obrigatória de várias análises em uma única execução;
 - interface gráfica;
 - gerenciamento completo da escala hospitalar.
 
@@ -632,7 +790,7 @@ Essas funcionalidades não devem ser consideradas falhas do incremento da Sprint
 
 ## 30. Problemas comuns
 
-### 30.1 O sistema informa que a opção é inválida
+### 30.1 O sistema informa que o turno é inválido
 
 Verifique se a opção digitada corresponde a uma das opções apresentadas no menu.
 
@@ -646,6 +804,8 @@ Exemplo:
 
 Utilize somente uma das opções disponíveis.
 
+Caso seja informada uma opção inexistente, a análise será encerrada e será necessário iniciar novamente o programa.
+
 ---
 
 ### 30.2 O sistema informa quantidade inválida
@@ -654,7 +814,11 @@ Verifique se foi digitada uma quantidade permitida.
 
 Quantidades negativas não são aceitas.
 
-Também poderão ser rejeitadas quantidades excessivamente altas de acordo com o limite máximo validado com o cliente/P2.
+A quantidade `0` é válida e representa que não existem profissionais disponíveis naquela especialidade.
+
+A equipe também propôs o limite máximo de 30 profissionais por especialidade.
+
+Caso esse limite seja validado pelo cliente/P2, valores superiores a 30 serão considerados inválidos.
 
 ---
 
@@ -680,6 +844,8 @@ Exemplo:
 
 Nesse caso, o plantão não pode ser publicado porque não existe Pediatra disponível.
 
+O resultado deverá informar a especialidade insuficiente.
+
 ---
 
 ### 30.4 O sistema não mantém os dados da análise anterior
@@ -687,6 +853,20 @@ Nesse caso, o plantão não pode ser publicado porque não existe Pediatra dispo
 Esse comportamento é esperado durante a Sprint 1.
 
 O sistema não possui persistência de dados entre execuções.
+
+---
+
+### 30.5 O programa encerrou após uma entrada inválida
+
+Esse comportamento é esperado durante a Sprint 1.
+
+Quando uma entrada inválida for identificada, o sistema deverá:
+
+1. informar o erro;
+2. impedir que o dado seja utilizado;
+3. encerrar a análise atual.
+
+Para tentar novamente, execute o programa outra vez.
 
 ---
 
@@ -727,7 +907,7 @@ Apresenta os procedimentos necessários para preparar o ambiente e executar o si
 docs/backlog/product-backlog.md
 ```
 
-Apresenta as User Stories, prioridades, regras e critérios relacionados ao produto.
+Apresenta as User Stories, regras, critérios de aceitação e informações de prioridade do produto.
 
 ### Sprint Backlog
 
@@ -769,9 +949,11 @@ Antes de iniciar uma análise:
 
 Após a análise:
 
-- [ ] resultado apresentado;
+- [ ] turno analisado apresentado;
+- [ ] situação da cobertura mínima apresentada;
 - [ ] condição de publicação informada;
-- [ ] motivo apresentado caso o plantão seja reprovado;
+- [ ] especialidade insuficiente apresentada em caso de reprovação;
+- [ ] quantidade necessária e quantidade informada apresentadas em caso de reprovação;
 - [ ] entradas inválidas tratadas corretamente.
 
 ---
@@ -787,6 +969,19 @@ Iniciar MedShift
 Selecionar turno
        |
        v
+Turno válido?
+       |
+   +---+---+
+   |       |
+  Sim     Não
+   |       |
+   |       v
+   |   Informar erro
+   |       |
+   |       v
+   |   Encerrar análise
+   |
+   v
 Informar quantidade de Clínicos Gerais
        |
        v
@@ -796,9 +991,22 @@ Informar quantidade de Pediatras
 Informar quantidade de Cirurgiões
        |
        v
-Validar dados
+Validar quantidades
        |
        v
+Dados válidos?
+       |
+   +---+---+
+   |       |
+  Sim     Não
+   |       |
+   |       v
+   |   Informar erro
+   |       |
+   |       v
+   |   Encerrar análise
+   |
+   v
 Verificar cobertura mínima
        |
        v
@@ -809,11 +1017,17 @@ Todos os mínimos foram atendidos?
   Sim     Não
    |       |
    v       v
-Pode     Não pode
-publicar publicar
-           |
-           v
-      Informar motivo
+Cobertura  Cobertura
+atingida   não atingida
+   |       |
+   v       v
+Pode      Identificar
+publicar  especialidade(s)
+           insuficiente(s)
+              |
+              v
+          Não pode
+          publicar
 ```
 
 ---
@@ -822,13 +1036,20 @@ publicar publicar
 
 O MedShift foi desenvolvido para fornecer à coordenação hospitalar uma forma simples e objetiva de analisar a cobertura de um plantão.
 
-Durante a Sprint 1, o sistema deve permitir que o usuário:
+Durante a Sprint 1, o sistema deverá permitir que o usuário:
 
 - escolha um turno;
-- informe as quantidades de profissionais;
+- informe as quantidades de Clínicos Gerais, Pediatras e Cirurgiões;
 - receba validação das entradas;
-- saiba se a cobertura mínima foi atendida;
+- saiba se a cobertura mínima foi atingida;
+- saiba qual turno foi analisado;
 - saiba se o plantão pode ser publicado;
-- identifique o motivo quando o plantão for reprovado.
+- identifique a especialidade ou as especialidades insuficientes quando o plantão for reprovado;
+- visualize a quantidade necessária e a quantidade informada para cada especialidade insuficiente;
+- receba uma mensagem clara quando informar um dado inválido.
 
-O usuário deverá conseguir realizar todo o processo através do console, sem necessidade de acessar ou alterar o código-fonte.
+O usuário deverá conseguir realizar todo o processo através do console do VisuAlg, sem necessidade de acessar ou alterar o código-fonte.
+
+Nesta Sprint, uma execução poderá analisar um único plantão.
+
+O limite máximo atualmente proposto pela equipe é de 30 profissionais por especialidade e permanece pendente de validação pelo cliente/P2.
