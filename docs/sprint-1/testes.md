@@ -46,11 +46,11 @@ A quantidade **0 é considerada uma entrada válida**, pois pode representar a a
 
 ### Limite máximo proposto
 
-A equipe propõe o limite máximo de **30 profissionais por especialidade em um único plantão**.
+A equipe propõe o limite máximo de **X profissionais por especialidade em um único plantão**.
 
-Valores superiores a 30 serão considerados inválidos caso a proposta seja aprovada pelo cliente/P2.
+Valores superiores a X serão considerados inválidos caso a proposta seja aprovada pelo cliente/P2.
 
-O valor de 30 é, neste momento, uma proposta da equipe e não deverá ser considerado uma regra definitiva até sua validação pelo cliente/P2.
+O valor de X é, neste momento, uma proposta da equipe e não deverá ser considerado uma regra definitiva até sua validação pelo cliente/P2.
 
 **Status do limite máximo:** Pendente de validação pelo cliente/P2.
 
@@ -350,14 +350,14 @@ Verificar se o próprio limite máximo continua sendo aceito como entrada válid
 
 **Observação:**
 
-Este cenário deverá ser considerado definitivo somente após a aprovação do limite de 30 profissionais pelo cliente/P2.
+Este cenário deverá ser considerado definitivo somente após a aprovação do limite de X profissionais pelo cliente/P2.
 
 **Dados de entrada:**
 
 | Campo | Valor |
 |---|---:|
 | Turno | Manhã |
-| Clínicos Gerais | 30 |
+| Clínicos Gerais | X |
 | Pediatras | 1 |
 | Cirurgiões | 1 |
 
@@ -376,7 +376,7 @@ Plantão PODE ser publicado.
 
 **Critério de sucesso:**
 
-Caso o limite de 30 seja aprovado, o teste será considerado aprovado se a quantidade 30 for aceita normalmente.
+Caso o limite de X seja aprovado, o teste será considerado aprovado se a quantidade X for aceita normalmente.
 
 **Status:** Aguardando validação do limite pelo cliente/P2
 
@@ -390,14 +390,14 @@ Verificar se o sistema rejeita uma quantidade superior ao limite máximo.
 
 **Observação:**
 
-Este cenário deverá ser considerado definitivo somente após a aprovação do limite de 30 profissionais pelo cliente/P2.
+Este cenário deverá ser considerado definitivo somente após a aprovação do limite de X profissionais pelo cliente/P2.
 
 **Dados de entrada:**
 
 | Campo | Valor |
 |---|---:|
 | Turno | Manhã |
-| Clínicos Gerais | 31 |
+| Clínicos Gerais | X+1 |
 
 **Resultado esperado após a validação do limite:**
 
@@ -411,7 +411,7 @@ Análise encerrada.
 
 **Critério de sucesso:**
 
-Caso o limite de 30 seja aprovado, o teste será considerado aprovado se o sistema rejeitar o valor 31, informar claramente o erro e encerrar a análise sem utilizar o valor informado.
+Caso o limite de X seja aprovado, o teste será considerado aprovado se o sistema rejeitar o valor X+1, informar claramente o erro e encerrar a análise sem utilizar o valor informado.
 
 **Status:** Aguardando validação do limite pelo cliente/P2
 
