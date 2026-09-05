@@ -431,15 +431,25 @@ estruturas de repetição ser trabalhado na disciplina.
 
 ---
 
-# Itens que precisam ser validados com o cliente/P2
+# Itens pendentes de validação com o cliente/P2
 
-Durante a Sprint, a equipe deverá esclarecer com o cliente:
+Após os esclarecimentos realizados com o cliente/P2, permanecem pendentes os seguintes pontos:
 
-- Qual deve ser a quantidade máxima plausível de médicos por especialidade;
-- Como o cliente prefere visualizar o resultado final;
-- Como devem ser apresentadas as mensagens de erro;
-- Se existe alguma preferência na organização das opções do sistema;
-- Se os critérios de aceite propostos pela equipe representam corretamente a necessidade do cliente.
+- definição da ordem de prioridade das sete User Stories da Sprint 1 pelo cliente/P2;
+- definição interna, pela equipe, de um valor máximo plausível de profissionais por especialidade, atualmente representado por **X**;
+- validação desse limite máximo pelo cliente/P2 após a equipe apresentar sua proposta;
+- validação da versão revisada dos critérios de aceitação das User Stories.
+
+Os seguintes pontos já foram esclarecidos pelo cliente/P2:
+
+- o resultado final deve informar o turno analisado;
+- o sistema deve informar se a cobertura mínima foi atingida ou não;
+- quando houver cobertura insuficiente, deve ser informada a especialidade responsável;
+- a conclusão deve indicar claramente se o plantão pode ou não ser publicado;
+- informar exatamente quantos profissionais faltam é opcional;
+- entradas inválidas nunca podem ser utilizadas como dados válidos;
+- a forma de tratamento da entrada inválida é uma decisão técnica da equipe;
+- realizar uma nova análise sem reiniciar o programa não é requisito obrigatório da Sprint 1.
 
 ---
 
