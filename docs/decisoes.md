@@ -305,3 +305,21 @@ Cobertura mínima: ATINGIDA
 
 Conclusão:
 Plantão PODE ser publicado.
+````
+**Exemplo de plantão reprovado:**
+
+```text
+===== RESULTADO DA ANÁLISE =====
+
+Turno analisado: MANHÃ
+
+Cobertura mínima: NÃO ATINGIDA
+
+Especialidade com cobertura insuficiente:
+Pediatra
+
+Quantidade necessária: 1
+Quantidade informada: 0
+
+Conclusão:
+Plantão NÃO pode ser publicado.
