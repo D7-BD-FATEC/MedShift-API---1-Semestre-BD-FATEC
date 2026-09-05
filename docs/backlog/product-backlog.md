@@ -48,66 +48,91 @@ e à decisão de publicação do plantão.
 
 ## US01 — Selecionar o turno do plantão
 
-**Como** coordenador de escala,  
-**quero** selecionar o turno que desejo analisar,  
-**para** verificar a cobertura do plantão correspondente.
+Como coordenador de escala,
+quero selecionar o turno que desejo analisar,
+para verificar a cobertura do plantão correspondente.
 
-**Prioridade:** 
+**Prioridade:** A definir pelo cliente/P2
 
 ### Critérios de Aceitação
 
-- O sistema deve permitir a escolha entre os turnos:
-  - Manhã;
-  - Tarde;
-  - Noite.
-- A escolha deve ser realizada pelo teclado.
-- O usuário não deve precisar alterar o código para selecionar o turno.
-- O sistema deve reconhecer corretamente o turno escolhido.
-- Uma opção de turno inválida deve ser identificada pelo sistema.
-- O resultado deve ser demonstrável no VisuAlg sem alteração do código.
+**Cenário válido**
+
+Dado que o sistema apresente as opções Manhã, Tarde e Noite,
+Quando o coordenador selecionar uma das opções válidas pelo teclado,
+Então o sistema deve reconhecer corretamente o turno escolhido e prosseguir com a análise.
+
+**Cenário inválido**
+
+Dado que o sistema apresente as opções de turno,
+Quando o coordenador informar uma opção diferente de Manhã, Tarde ou Noite,
+Então o sistema deve informar claramente que a escolha é inválida e não utilizar essa opção na análise.
+
+**Demonstração no VisuAlg**
+
+Dado que o programa esteja sendo executado no VisuAlg,
+Quando forem testados um turno válido e uma opção inválida,
+Então os dois cenários devem ser demonstráveis apenas alterando os dados de entrada, sem modificar o código.
 
 ---
 
 ## US02 — Informar a quantidade de profissionais
 
-**Como** coordenador de escala,  
-**quero** informar a quantidade de profissionais disponíveis em cada especialidade,  
-**para** que o sistema consiga analisar a cobertura do plantão.
+Como coordenador de escala,
+quero informar a quantidade de profissionais disponíveis em cada especialidade,
+para que o sistema consiga analisar a cobertura do plantão.
 
-**Prioridade:** 
+**Prioridade:** A definir pelo cliente/P2
 
 ### Critérios de Aceitação
 
-O sistema deve solicitar a quantidade de profissionais disponíveis para:
+**Cenário válido**
 
-- Clínico Geral;
-- Pediatra;
-- Cirurgião.
+Dado que um turno válido tenha sido selecionado,
+Quando o coordenador informar as quantidades de Clínicos Gerais, Pediatras e Cirurgiões,
+Então o sistema deve registrar os valores informados e utilizá-los na análise da cobertura.
 
-Além disso:
+**Cenário inválido**
 
-- Os valores devem ser informados pelo teclado.
-- Os valores informados devem ser utilizados na análise do plantão.
-- O usuário não deve precisar modificar o código para informar os dados.
-- O resultado deve ser demonstrável no VisuAlg sem alteração do código.
+Dado que o sistema esteja solicitando a quantidade de profissionais,
+Quando for informado um valor considerado inválido pelas regras da Sprint,
+Então o sistema não deve utilizar esse valor como uma quantidade válida na análise.
+
+**Demonstração no VisuAlg**
+
+Dado que o programa esteja sendo executado no VisuAlg,
+Quando forem informados diferentes valores pelo teclado,
+Então os cenários devem ser demonstráveis sem qualquer alteração no código.
 
 ---
 
 ## US03 — Validar as quantidades informadas
 
-**Como** coordenador de escala,  
-**quero** que o sistema valide as quantidades de profissionais informadas,  
-**para** evitar que dados impossíveis sejam utilizados na análise do plantão.
+Como coordenador de escala,
+quero que o sistema valide as quantidades de profissionais informadas,
+para evitar que dados impossíveis sejam utilizados na análise do plantão.
 
-**Prioridade:** 
+**Prioridade:** A definir pelo cliente/P2
 
 ### Critérios de Aceitação
 
-- O sistema não deve aceitar quantidades negativas de profissionais.
-- Caso uma quantidade negativa seja informada, o sistema deve sinalizar o erro.
-- Quantidades absurdamente altas também devem ser consideradas inválidas.
-- O sistema deve informar ao usuário quando uma quantidade for considerada inválida.
-- O resultado deve ser demonstrável no VisuAlg sem alteração do código.
+**Cenário válido**
+
+Dado que o coordenador informe uma quantidade dentro do intervalo permitido,
+Quando o valor for validado pelo sistema,
+Então ele deve ser aceito e utilizado na análise do plantão.
+
+**Cenário inválido**
+
+Dado que o coordenador informe uma quantidade negativa ou superior ao limite máximo definido,
+Quando o sistema realizar a validação,
+Então deve informar claramente que o valor é inválido e impedir que ele seja utilizado na análise.
+
+**Demonstração no VisuAlg**
+
+Dado que o programa esteja sendo executado no VisuAlg,
+Quando forem utilizados valores válidos e inválidos,
+Então os dois comportamentos devem ser demonstráveis apenas pela alteração dos dados de entrada, sem modificar o código.
 
 
 **Valor máximo permitido: (Definir qual o valor max e o motivo).**
@@ -116,101 +141,120 @@ Além disso:
 
 ## US04 — Verificar a cobertura mínima do plantão
 
-**Como** coordenador de escala,  
-**quero** verificar se o plantão possui a quantidade mínima de profissionais,  
-**para** saber se sua cobertura está adequada.
+Como coordenador de escala,
+quero que o sistema compare a quantidade de profissionais disponíveis com a cobertura mínima exigida,
+para saber se o plantão possui cobertura adequada.
 
-**Prioridade:** 
-
-### Regras de Cobertura
-
-A cobertura mínima exigida é:
-
-| Especialidade | Manhã | Tarde | Noite |
-|---|---:|---:|---:|
-| Clínico Geral | 2 | 2 | 2 |
-| Pediatra | 1 | 1 | 1 |
-| Cirurgião | 1 | 1 | 1 |
+**Prioridade:** A definir pelo cliente/P2
 
 ### Critérios de Aceitação
 
-- O plantão deve possuir pelo menos 2 Clínicos Gerais.
-- O plantão deve possuir pelo menos 1 Pediatra.
-- O plantão deve possuir pelo menos 1 Cirurgião.
-- O sistema deve comparar as quantidades informadas com os valores mínimos.
-- Caso todas as quantidades mínimas sejam atendidas, o plantão deve ser considerado coberto.
-- Caso alguma quantidade mínima não seja atendida, o plantão deve ser considerado inadequado.
-- A verificação deve funcionar para Manhã, Tarde e Noite.
-- O resultado deve ser demonstrável no VisuAlg sem alteração do código.
+**Cenário válido**
+
+Dado que tenham sido informados pelo menos 2 Clínicos Gerais, 1 Pediatra e 1 Cirurgião,
+Quando o sistema verificar a cobertura mínima,
+Então deve identificar que a cobertura do plantão foi atingida.
+
+**Cenário inválido**
+
+Dado que pelo menos uma das especialidades esteja abaixo da quantidade mínima exigida,
+Quando o sistema verificar a cobertura,
+Então deve identificar que a cobertura mínima do plantão não foi atingida.
+
+**Demonstração no VisuAlg**
+
+Dado que o programa esteja sendo executado no VisuAlg,
+Quando forem informadas quantidades suficientes e insuficientes,
+Então ambos os resultados devem ser demonstráveis sem alteração do código.
 
 ---
 
 ## US05 — Informar se o plantão pode ser publicado
 
-**Como** coordenador de escala,  
-**quero** saber se o plantão pode ou não ser publicado,  
-**para** evitar a publicação de uma escala com cobertura inadequada.
+Como coordenador de escala,
+quero receber uma conclusão sobre a possibilidade de publicação do plantão,
+para saber se a escala está apta para publicação.
 
-**Prioridade:** 
-
-### Critérios de Aceitação
-
-- O sistema deve analisar a cobertura mínima do plantão.
-- Caso todas as especialidades atendam à cobertura mínima, o sistema deve informar que o plantão pode ser publicado.
-- Caso alguma especialidade não atenda à cobertura mínima, o sistema deve informar que o plantão não pode ser publicado.
-- A conclusão deve ser apresentada de forma clara na tela.
-- O resultado deve ser demonstrável no VisuAlg sem alteração do código.
-
----
-
-## US06 — Informar o motivo da reprovação
-
-**Como** coordenador de escala,  
-**quero** visualizar o motivo pelo qual um plantão não pode ser publicado,  
-**para** identificar rapidamente o problema de cobertura.
-
-**Prioridade:** 
+**Prioridade:** A definir pelo cliente/P2
 
 ### Critérios de Aceitação
 
-- Quando o plantão não puder ser publicado, o sistema deve informar o motivo.
-- O sistema deve indicar qual especialidade possui cobertura insuficiente.
-- A mensagem deve ser apresentada na tela.
-- O sistema não deve apenas informar que existe um erro.
-- A informação apresentada deve ajudar a coordenação a identificar o problema.
-- O resultado deve ser demonstrável no VisuAlg sem alteração do código.
+**Cenário válido**
 
-### Exemplo de resultado esperado
+Dado que todas as especialidades atendam à cobertura mínima,
+Quando a análise do plantão for concluída,
+Então o sistema deve informar claramente que o plantão pode ser publicado.
 
-Plantão NÃO pode ser publicado.
+**Cenário inválido**
 
-Motivo:
+Dado que pelo menos uma especialidade não atenda à cobertura mínima,
+Quando a análise do plantão for concluída,
+Então o sistema deve informar claramente que o plantão não pode ser publicado.
 
-Quantidade insuficiente de Pediatras.
+**Demonstração no VisuAlg**
 
-Necessário: 1  
-Informado: 0
-
-> Observação: este é apenas um exemplo de apresentação.
-> O formato final da mensagem poderá ser validado com o cliente/P2.
+Dado que o programa esteja sendo executado no VisuAlg,
+Quando forem analisados um plantão aprovado e um plantão reprovado,
+Então ambas as conclusões devem ser demonstráveis sem alteração do código.
 
 ---
 
+## US06 — Informar o motivo da reprovação do plantão
+
+Como coordenador de escala,
+quero saber o motivo pelo qual um plantão não pode ser publicado,
+para identificar qual especialidade apresenta cobertura insuficiente.
+
+**Prioridade:** A definir pelo cliente/P2
+
+### Critérios de Aceitação
+
+**Cenário válido**
+
+Dado que uma ou mais especialidades estejam abaixo da cobertura mínima,
+Quando o plantão for considerado inadequado para publicação,
+Então o sistema deve informar qual especialidade está insuficiente, juntamente com a quantidade necessária e a quantidade informada.
+
+**Cenário inválido**
+
+Dado que todas as especialidades atendam à cobertura mínima,
+Quando a análise for concluída,
+Então o sistema não deve apresentar uma especialidade como insuficiente.
+
+**Demonstração no VisuAlg**
+
+Dado que o programa esteja sendo executado no VisuAlg,
+Quando forem utilizados dados que provoquem aprovação e reprovação,
+Então os resultados e seus respectivos motivos devem ser demonstráveis sem alteração do código.
+
+---
 ## US07 — Tratar escolhas inválidas
 
-**Como** coordenador de escala,  
-**quero** que escolhas inválidas sejam identificadas pelo sistema,  
-**para** evitar operações incorretas durante a utilização do programa.
+Como coordenador de escala,
+quero ser informado quando realizar uma escolha inválida,
+para evitar que o sistema faça uma análise utilizando uma opção incorreta.
 
-**Prioridade:** 
+**Prioridade:** A definir pelo cliente/P2
 
 ### Critérios de Aceitação
 
-- O sistema deve identificar opções inválidas na seleção realizada pelo usuário.
-- Uma opção inválida não deve ser considerada uma operação válida.
-- O sistema deve apresentar uma mensagem informando que a opção escolhida é inválida.
-- O usuário não deve precisar alterar o código para realizar uma operação válida.
-- O resultado deve ser demonstrável no VisuAlg sem alteração do código.
+**Cenário válido**
+
+Dado que o sistema apresente as opções disponíveis,
+Quando o coordenador selecionar uma opção válida,
+Então o sistema deve aceitar a escolha e continuar normalmente a execução.
+
+**Cenário inválido**
+
+Dado que o sistema apresente as opções disponíveis,
+Quando o coordenador selecionar uma opção inexistente,
+Então o sistema deve informar claramente que a escolha é inválida e impedir que ela seja utilizada na análise.
+
+**Demonstração no VisuAlg**
+
+Dado que o programa esteja sendo executado no VisuAlg,
+Quando forem realizadas uma escolha válida e uma escolha inválida,
+Então ambos os comportamentos devem ser demonstráveis sem modificar o código.
 
 ---
 
