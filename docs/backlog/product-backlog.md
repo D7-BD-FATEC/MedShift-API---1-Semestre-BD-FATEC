@@ -2,15 +2,20 @@
 
 ## Priorização do Product Backlog
 
-| Ordem | ID | User Story | Prioridade | Sprint |
-|---:|---|---|---|---|
-| 1 | US04 | Verificar a cobertura mínima do plantão | Crítica | Sprint 1 |
-| 2 | US05 | Informar se o plantão pode ser publicado | Crítica | Sprint 1 |
-| 3 | US06 | Informar o motivo da reprovação do plantão | Crítica | Sprint 1 |
-| 4 | US02 | Informar a quantidade de profissionais | Alta | Sprint 1 |
-| 5 | US01 | Selecionar o turno do plantão | Alta | Sprint 1 |
-| 6 | US03 | Validar as quantidades informadas | Alta | Sprint 1 |
-| 7 | US07 | Tratar escolhas inválidas | Média | Sprint 1 |
+A ordem de prioridade das User Stories será definida pelo cliente/P2.
+
+Durante a reunião de validação, as sete histórias da Sprint 1 serão
+apresentadas ao cliente para que ele determine sua ordem de prioridade.
+
+| ID | User Story | Prioridade | Sprint |
+|---|---|---|---|
+| US01 | Selecionar o turno do plantão | A definir pelo cliente/P2 | Sprint 1 |
+| US02 | Informar a quantidade de profissionais | A definir pelo cliente/P2 | Sprint 1 |
+| US03 | Validar as quantidades informadas | A definir pelo cliente/P2 | Sprint 1 |
+| US04 | Verificar a cobertura mínima do plantão | A definir pelo cliente/P2 | Sprint 1 |
+| US05 | Informar se o plantão pode ser publicado | A definir pelo cliente/P2 | Sprint 1 |
+| US06 | Informar o motivo da reprovação do plantão | A definir pelo cliente/P2 | Sprint 1 |
+| US07 | Tratar escolhas inválidas | A definir pelo cliente/P2 | Sprint 1 |
 
 ### Critério de Priorização
 
@@ -47,7 +52,7 @@ e à decisão de publicação do plantão.
 **quero** selecionar o turno que desejo analisar,  
 **para** verificar a cobertura do plantão correspondente.
 
-**Prioridade:** Alta
+**Prioridade:** 
 
 ### Critérios de Aceitação
 
@@ -69,7 +74,7 @@ e à decisão de publicação do plantão.
 **quero** informar a quantidade de profissionais disponíveis em cada especialidade,  
 **para** que o sistema consiga analisar a cobertura do plantão.
 
-**Prioridade:** Alta
+**Prioridade:** 
 
 ### Critérios de Aceitação
 
@@ -94,7 +99,7 @@ Além disso:
 **quero** que o sistema valide as quantidades de profissionais informadas,  
 **para** evitar que dados impossíveis sejam utilizados na análise do plantão.
 
-**Prioridade:** Alta
+**Prioridade:** 
 
 ### Critérios de Aceitação
 
@@ -104,15 +109,8 @@ Além disso:
 - O sistema deve informar ao usuário quando uma quantidade for considerada inválida.
 - O resultado deve ser demonstrável no VisuAlg sem alteração do código.
 
-### Ponto a validar com o cliente
 
-O Caderno do Estudante não determina qual deve ser a quantidade máxima
-permitida de profissionais.
-
-A equipe deverá propor um valor máximo plausível e validar esse valor
-com o cliente/P2 antes de considerá-lo uma regra definitiva.
-
-**Valor máximo permitido: A DEFINIR COM O CLIENTE/P2.**
+**Valor máximo permitido: (Definir qual o valor max e o motivo).**
 
 ---
 
@@ -122,7 +120,7 @@ com o cliente/P2 antes de considerá-lo uma regra definitiva.
 **quero** verificar se o plantão possui a quantidade mínima de profissionais,  
 **para** saber se sua cobertura está adequada.
 
-**Prioridade:** Alta
+**Prioridade:** 
 
 ### Regras de Cobertura
 
@@ -171,7 +169,7 @@ A cobertura mínima exigida é:
 **quero** visualizar o motivo pelo qual um plantão não pode ser publicado,  
 **para** identificar rapidamente o problema de cobertura.
 
-**Prioridade:** Alta
+**Prioridade:** 
 
 ### Critérios de Aceitação
 
@@ -204,7 +202,7 @@ Informado: 0
 **quero** que escolhas inválidas sejam identificadas pelo sistema,  
 **para** evitar operações incorretas durante a utilização do programa.
 
-**Prioridade:** Alta
+**Prioridade:** 
 
 ### Critérios de Aceitação
 
