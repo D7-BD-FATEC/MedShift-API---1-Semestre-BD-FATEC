@@ -65,3 +65,15 @@ ser publicado.
 | **Karina** | Desenvolvedor |
 | **Allan Almeida** | Desenvolvedor |
 | **Arthur Peres** | Desenvolvedor |
+
+---
+## Organização do Desenvolvimento
+
+O desenvolvimento do MedShift utiliza uma estratégia de branches para manter a branch principal estável e facilitar a organização das alterações realizadas pela equipe.
+
+Novas funcionalidades, correções, testes e alterações de documentação devem ser realizadas em branches específicas e posteriormente integradas à `main` por meio de Pull Requests.
+
+A estratégia completa está documentada em:
+
+- [Estratégia de Branches](docs/branch-strategy.md)
+- [Padrão de Mensagens de Commit](docs/commit-pattern.md)
