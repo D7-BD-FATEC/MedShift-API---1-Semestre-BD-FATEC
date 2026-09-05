@@ -176,3 +176,38 @@ Padrão adotado:
 1 - Manhã
 2 - Tarde
 3 - Noite
+```
+---
+
+---
+
+## 6. DEC05 — Proposta de limite máximo de profissionais
+
+**Decisão:**
+
+A equipe propõe o limite máximo de **X profissionais por especialidade em um único plantão**.
+
+**Motivo:**
+
+O Hospital Santa Aurora é apresentado como uma instituição de médio porte e,
+na Sprint 1, a cobertura mínima necessária por plantão é de:
+
+- 2 Clínicos Gerais;
+- 1 Pediatra;
+- 1 Cirurgião.
+
+Considerando essas quantidades, a equipe entende que valores superiores a
+X profissionais de uma mesma especialidade em um único plantão podem indicar
+um possível erro de digitação.
+
+O valor de X foi proposto com uma margem consideravelmente superior à
+cobertura mínima, evitando que quantidades plausíveis sejam rejeitadas
+indevidamente.
+
+**Impacto:**
+
+Caso o limite seja aprovado pelo cliente/P2, valores superiores a X
+profissionais por especialidade serão considerados inválidos e não poderão
+ser utilizados na análise do plantão.
+
+**Status:** Pendente de validação pelo cliente/P2.
