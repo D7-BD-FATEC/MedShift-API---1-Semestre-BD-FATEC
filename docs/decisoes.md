@@ -181,7 +181,7 @@ Padrão adotado:
 
 ---
 
-## 6. DEC05 — Proposta de limite máximo de profissionais
+## 6. DEC06 — Proposta de limite máximo de profissionais
 
 **Decisão:**
 
