@@ -44,20 +44,20 @@ para verificar a cobertura do plantão correspondente.
 
 **Cenário válido**
 
-Dado que o sistema apresente as opções Manhã, Tarde e Noite,
-Quando o coordenador selecionar uma das opções válidas pelo teclado,
+Dado que o sistema apresente as opções Manhã, Tarde e Noite,  
+Quando o coordenador selecionar uma das opções válidas pelo teclado,  
 Então o sistema deve reconhecer corretamente o turno escolhido e prosseguir com a análise.
 
 **Cenário inválido**
 
-Dado que o sistema apresente as opções de turno,
-Quando o coordenador informar uma opção diferente de Manhã, Tarde ou Noite,
+Dado que o sistema apresente as opções de turno,  
+Quando o coordenador informar uma opção diferente de Manhã, Tarde ou Noite,  
 Então o sistema deve informar claramente que a escolha é inválida e não utilizar essa opção na análise.
 
 **Demonstração no VisuAlg**
 
-Dado que o programa esteja sendo executado no VisuAlg,
-Quando forem testados um turno válido e uma opção inválida,
+Dado que o programa esteja sendo executado no VisuAlg,  
+Quando forem testados um turno válido e uma opção inválida,  
 Então os dois cenários devem ser demonstráveis apenas alterando os dados de entrada, sem modificar o código.
 
 ---
@@ -74,20 +74,20 @@ para que o sistema consiga analisar a cobertura do plantão.
 
 **Cenário válido**
 
-Dado que um turno válido tenha sido selecionado,
-Quando o coordenador informar as quantidades de Clínicos Gerais, Pediatras e Cirurgiões,
+Dado que um turno válido tenha sido selecionado,  
+Quando o coordenador informar as quantidades de Clínicos Gerais, Pediatras e Cirurgiões,  
 Então o sistema deve registrar os valores informados e utilizá-los na análise da cobertura.
 
 **Cenário inválido**
 
-Dado que o sistema esteja solicitando a quantidade de profissionais,
-Quando for informado um valor considerado inválido pelas regras da Sprint,
+Dado que o sistema esteja solicitando a quantidade de profissionais,  
+Quando for informado um valor considerado inválido pelas regras da Sprint,  
 Então o sistema não deve utilizar esse valor como uma quantidade válida na análise.
 
 **Demonstração no VisuAlg**
 
-Dado que o programa esteja sendo executado no VisuAlg,
-Quando forem informados diferentes valores pelo teclado,
+Dado que o programa esteja sendo executado no VisuAlg,  
+Quando forem informados diferentes valores pelo teclado,  
 Então os cenários devem ser demonstráveis sem qualquer alteração no código.
 
 ---
@@ -104,25 +104,27 @@ para evitar que dados impossíveis sejam utilizados na análise do plantão.
 
 **Cenário válido**
 
-Dado que o coordenador informe uma quantidade dentro do intervalo permitido,
-Quando o valor for validado pelo sistema,
+Dado que o coordenador informe uma quantidade dentro do intervalo permitido,  
+Quando o valor for validado pelo sistema,  
 Então ele deve ser aceito e utilizado na análise do plantão.
 
 **Cenário inválido**
 
-Dado que o coordenador informe uma quantidade negativa ou superior ao limite máximo definido,
-Quando o sistema realizar a validação,
+Dado que o coordenador informe uma quantidade negativa ou, após a definição e validação do limite máximo, uma quantidade superior a esse limite,  
+Quando o sistema realizar a validação,  
 Então deve informar claramente que o valor é inválido e impedir que ele seja utilizado na análise.
 
 **Demonstração no VisuAlg**
 
-Dado que o programa esteja sendo executado no VisuAlg,
-Quando forem utilizados valores válidos e inválidos,
+Dado que o programa esteja sendo executado no VisuAlg,  
+Quando forem utilizados valores válidos e inválidos,  
 Então os dois comportamentos devem ser demonstráveis apenas pela alteração dos dados de entrada, sem modificar o código.
 
-### Proposta de limite máximo
+### Definição do limite máximo
 
-A equipe propõe o limite máximo de **x profissionais por especialidade em um único plantão**.
+A equipe ainda está definindo internamente um valor máximo plausível de profissionais por especialidade em um único plantão.
+
+Enquanto esse valor não for definido, ele será representado temporariamente por **X** na documentação.
 
 #### Justificativa
 
@@ -133,15 +135,17 @@ na Sprint 1, a cobertura mínima exigida por plantão é de:
 - 1 Pediatra;
 - 1 Cirurgião.
 
-Considerando esses valores mínimos, a equipe entende que uma entrada superior
-a x profissionais de uma mesma especialidade em um único plantão é
-suficientemente elevada para ser tratada como possível erro de digitação.
+Quantidades excessivamente altas podem representar erros de digitação.
 
-O limite foi definido com margem superior à quantidade mínima necessária,
-evitando rejeitar valores plausíveis enquanto permite identificar entradas
-claramente fora do esperado.
+Por esse motivo, a equipe deverá definir um valor máximo plausível, com uma
+justificativa baseada no contexto do hospital e nas quantidades mínimas exigidas.
 
-**Status:** Pendente de validação pelo cliente/P2.
+Após a definição interna da equipe, o valor proposto será apresentado ao
+cliente/P2 para validação antes de ser considerado uma regra definitiva do sistema.
+
+**Valor máximo atual:** X profissionais por especialidade.
+
+**Status:** Em definição pela equipe.
 
 ---
 
@@ -157,20 +161,20 @@ para saber se o plantão possui cobertura adequada.
 
 **Cenário válido**
 
-Dado que tenham sido informados pelo menos 2 Clínicos Gerais, 1 Pediatra e 1 Cirurgião,
-Quando o sistema verificar a cobertura mínima,
+Dado que tenham sido informados pelo menos 2 Clínicos Gerais, 1 Pediatra e 1 Cirurgião,  
+Quando o sistema verificar a cobertura mínima,  
 Então deve identificar que a cobertura do plantão foi atingida.
 
 **Cenário inválido**
 
-Dado que pelo menos uma das especialidades esteja abaixo da quantidade mínima exigida,
-Quando o sistema verificar a cobertura,
+Dado que pelo menos uma das especialidades esteja abaixo da quantidade mínima exigida,  
+Quando o sistema verificar a cobertura,  
 Então deve identificar que a cobertura mínima do plantão não foi atingida.
 
 **Demonstração no VisuAlg**
 
-Dado que o programa esteja sendo executado no VisuAlg,
-Quando forem informadas quantidades suficientes e insuficientes,
+Dado que o programa esteja sendo executado no VisuAlg,  
+Quando forem informadas quantidades suficientes e insuficientes,  
 Então ambos os resultados devem ser demonstráveis sem alteração do código.
 
 ---
@@ -187,20 +191,20 @@ para saber se a escala está apta para publicação.
 
 **Cenário válido**
 
-Dado que todas as especialidades atendam à cobertura mínima,
-Quando a análise do plantão for concluída,
+Dado que todas as especialidades atendam à cobertura mínima,  
+Quando a análise do plantão for concluída,  
 Então o sistema deve informar claramente que o plantão pode ser publicado.
 
 **Cenário inválido**
 
-Dado que pelo menos uma especialidade não atenda à cobertura mínima,
-Quando a análise do plantão for concluída,
+Dado que pelo menos uma especialidade não atenda à cobertura mínima,  
+Quando a análise do plantão for concluída,  
 Então o sistema deve informar claramente que o plantão não pode ser publicado.
 
 **Demonstração no VisuAlg**
 
-Dado que o programa esteja sendo executado no VisuAlg,
-Quando forem analisados um plantão aprovado e um plantão reprovado,
+Dado que o programa esteja sendo executado no VisuAlg,  
+Quando forem analisados um plantão aprovado e um plantão reprovado,  
 Então ambas as conclusões devem ser demonstráveis sem alteração do código.
 
 ---
@@ -217,23 +221,24 @@ para identificar qual especialidade apresenta cobertura insuficiente.
 
 **Cenário válido**
 
-Dado que uma ou mais especialidades estejam abaixo da cobertura mínima,
-Quando o plantão for considerado inadequado para publicação,
+Dado que uma ou mais especialidades estejam abaixo da cobertura mínima,  
+Quando o plantão for considerado inadequado para publicação,  
 Então o sistema deve informar qual especialidade está insuficiente, juntamente com a quantidade necessária e a quantidade informada.
 
 **Cenário inválido**
 
-Dado que todas as especialidades atendam à cobertura mínima,
-Quando a análise for concluída,
+Dado que todas as especialidades atendam à cobertura mínima,  
+Quando a análise for concluída,  
 Então o sistema não deve apresentar uma especialidade como insuficiente.
 
 **Demonstração no VisuAlg**
 
-Dado que o programa esteja sendo executado no VisuAlg,
-Quando forem utilizados dados que provoquem aprovação e reprovação,
+Dado que o programa esteja sendo executado no VisuAlg,  
+Quando forem utilizados dados que provoquem aprovação e reprovação,  
 Então os resultados e seus respectivos motivos devem ser demonstráveis sem alteração do código.
 
 ---
+
 ## US07 — Tratar escolhas inválidas
 
 Como coordenador de escala,
@@ -246,20 +251,20 @@ para evitar que o sistema faça uma análise utilizando uma opção incorreta.
 
 **Cenário válido**
 
-Dado que o sistema apresente as opções disponíveis,
-Quando o coordenador selecionar uma opção válida,
+Dado que o sistema apresente as opções disponíveis,  
+Quando o coordenador selecionar uma opção válida,  
 Então o sistema deve aceitar a escolha e continuar normalmente a execução.
 
 **Cenário inválido**
 
-Dado que o sistema apresente as opções disponíveis,
-Quando o coordenador selecionar uma opção inexistente,
+Dado que o sistema apresente as opções disponíveis,  
+Quando o coordenador selecionar uma opção inexistente,  
 Então o sistema deve informar claramente que a escolha é inválida e impedir que ela seja utilizada na análise.
 
 **Demonstração no VisuAlg**
 
-Dado que o programa esteja sendo executado no VisuAlg,
-Quando forem realizadas uma escolha válida e uma escolha inválida,
+Dado que o programa esteja sendo executado no VisuAlg,  
+Quando forem realizadas uma escolha válida e uma escolha inválida,  
 Então ambos os comportamentos devem ser demonstráveis sem modificar o código.
 
 ---
@@ -314,17 +319,28 @@ o motivo da reprovação.
 Quantidades negativas de profissionais são impossíveis e não devem
 ser aceitas pelo sistema.
 
+A quantidade `0` é válida e pode representar a ausência de profissionais
+disponíveis em determinada especialidade.
+
 ---
 
 ## RN07 — Quantidade máxima
 
-Quantidades absurdamente altas também devem ser tratadas como possíveis
+Quantidades excessivamente altas também devem ser tratadas como possíveis
 erros de digitação.
 
-A equipe deverá propor um valor máximo plausível e validá-lo com o
-cliente/P2.
+A equipe ainda está definindo internamente um valor máximo plausível de
+profissionais por especialidade.
 
-**Valor máximo: A DEFINIR.**
+Enquanto esse valor não for definido, ele será representado temporariamente
+por **X**.
+
+Após a definição interna, a proposta deverá ser apresentada ao cliente/P2
+para validação.
+
+**Valor máximo:** X profissionais por especialidade.
+
+**Status:** Em definição pela equipe e posteriormente sujeito à validação do cliente/P2.
 
 ---
 
@@ -470,4 +486,3 @@ O Product Backlog será atualizado conforme a evolução do projeto e
 os feedbacks apresentados pelo cliente/P2.
 
 ---
-
