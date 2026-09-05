@@ -134,8 +134,28 @@ Dado que o programa esteja sendo executado no VisuAlg,
 Quando forem utilizados valores válidos e inválidos,
 Então os dois comportamentos devem ser demonstráveis apenas pela alteração dos dados de entrada, sem modificar o código.
 
+### Proposta de limite máximo
 
-**Valor máximo permitido: (Definir qual o valor max e o motivo).**
+A equipe propõe o limite máximo de **x profissionais por especialidade em um único plantão**.
+
+#### Justificativa
+
+O Hospital Santa Aurora é apresentado como uma instituição de médio porte e,
+na Sprint 1, a cobertura mínima exigida por plantão é de:
+
+- 2 Clínicos Gerais;
+- 1 Pediatra;
+- 1 Cirurgião.
+
+Considerando esses valores mínimos, a equipe entende que uma entrada superior
+a x profissionais de uma mesma especialidade em um único plantão é
+suficientemente elevada para ser tratada como possível erro de digitação.
+
+O limite foi definido com margem superior à quantidade mínima necessária,
+evitando rejeitar valores plausíveis enquanto permite identificar entradas
+claramente fora do esperado.
+
+**Status:** Pendente de validação pelo cliente/P2.
 
 ---
 
