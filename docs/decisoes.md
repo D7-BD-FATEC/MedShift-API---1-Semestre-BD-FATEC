@@ -181,7 +181,7 @@ Padrão adotado:
 
 ---
 
-## 6. DEC06 — Proposta de limite máximo de profissionais
+## DEC06 — Proposta de limite máximo de profissionais
 
 **Decisão:**
 
@@ -211,3 +211,97 @@ profissionais por especialidade serão considerados inválidos e não poderão
 ser utilizados na análise do plantão.
 
 **Status:** Pendente de validação pelo cliente/P2.
+
+---
+
+## 7. DEC06 — Tratamento de entradas inválidas
+
+**Decisão:**
+
+Quando o usuário informar um dado inválido, o sistema deverá apresentar uma
+mensagem clara de erro, impedir que esse dado seja utilizado na análise e
+encerrar a execução atual.
+
+Nesta Sprint, o sistema não será obrigado a solicitar uma nova digitação após
+a identificação do erro.
+
+**São considerados exemplos de entradas inválidas:**
+
+- quantidade negativa de profissionais;
+- quantidade superior ao limite máximo validado pelo cliente/P2;
+- opção de turno inexistente.
+
+**Motivo:**
+
+O cliente determinou que nenhum dado inválido pode ser aceito como válido e
+que o coordenador precisa compreender claramente qual foi o erro cometido.
+
+A equipe optou por encerrar a análise após uma entrada inválida porque a
+repetição da entrada não é um requisito obrigatório da Sprint 1.
+
+**Impacto:**
+
+Ao identificar uma entrada inválida:
+
+1. o sistema exibirá uma mensagem explicando o erro;
+2. o valor não será utilizado na análise;
+3. a execução atual será encerrada;
+4. para realizar uma nova análise, o usuário deverá executar novamente o programa.
+
+**Exemplo:**
+
+```text
+ERRO: quantidade inválida.
+
+A quantidade de profissionais não pode ser negativa.
+
+Análise encerrada.
+```
+
+---
+
+## DEC07 — Informações obrigatórias no resultado final
+
+**Decisão:**
+
+Ao final da análise de um plantão, o sistema deverá apresentar de forma clara:
+
+- o turno analisado;
+- se a cobertura mínima foi atingida ou não;
+- a especialidade ou as especialidades com cobertura insuficiente, quando houver;
+- a quantidade necessária e a quantidade informada para cada especialidade insuficiente;
+- a conclusão indicando se o plantão pode ou não ser publicado.
+
+**Motivo:**
+
+O cliente informou que a coordenação precisa compreender claramente o resultado
+da análise e, quando o plantão não puder ser publicado, identificar qual
+especialidade apresenta cobertura insuficiente.
+
+A equipe optou por manter também a exibição da quantidade necessária e da
+quantidade informada, pois esse nível de detalhe foi considerado útil pelo
+cliente para compreender o motivo da reprovação.
+
+**Impacto:**
+
+O resultado não deverá apresentar apenas uma mensagem genérica como
+"plantão inválido" ou "plantão não pode ser publicado".
+
+A saída deverá fornecer informações suficientes para que a coordenação saiba:
+
+1. qual turno foi analisado;
+2. se a cobertura mínima foi atendida;
+3. qual especialidade causou a reprovação, quando aplicável;
+4. se o plantão pode ou não ser publicado.
+
+**Exemplo de plantão aprovado:**
+
+```text
+===== RESULTADO DA ANÁLISE =====
+
+Turno analisado: MANHÃ
+
+Cobertura mínima: ATINGIDA
+
+Conclusão:
+Plantão PODE ser publicado.
