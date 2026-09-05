@@ -19,28 +19,14 @@ apresentadas ao cliente para que ele determine sua ordem de prioridade.
 
 ### Critério de Priorização
 
-A priorização do Product Backlog foi definida considerando principalmente
-o valor de negócio entregue por cada User Story para o objetivo da Sprint 1.
+A priorização das User Stories ainda não foi definida.
 
-As histórias **US04, US05 e US06** receberam prioridade **Crítica**, pois
-estão diretamente relacionadas à principal necessidade apresentada pelo
-cliente: analisar a cobertura de um plantão, determinar se ele pode ser
-publicado e informar claramente o motivo quando a publicação não for possível.
+Conforme orientação do cliente/P2, as sete histórias da Sprint 1 serão
+apresentadas para que ele determine a ordem de prioridade de acordo com
+o valor de negócio.
 
-As histórias **US01, US02 e US03** receberam prioridade **Alta**, pois
-fornecem as informações e validações necessárias para que a análise do
-plantão seja realizada corretamente.
-
-A **US07** recebeu prioridade **Média**, pois o tratamento de escolhas
-inválidas é importante para a confiabilidade e facilidade de uso do sistema,
-mas possui menor valor de negócio quando comparado à análise da cobertura
-e à decisão de publicação do plantão.
-
-> **Observação:** a prioridade representa o valor de negócio da User Story
-> e não necessariamente a ordem técnica de implementação. Algumas histórias
-> de prioridade Alta podem precisar ser desenvolvidas antes das histórias
-> de prioridade Crítica por serem dependências necessárias para o funcionamento
-> da análise.
+Até essa definição, todas as User Stories permanecerão com a prioridade
+indicada como **"A definir pelo cliente/P2"**.
 
 ---
 
