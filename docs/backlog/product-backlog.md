@@ -151,7 +151,7 @@ A cobertura mínima exigida é:
 **quero** saber se o plantão pode ou não ser publicado,  
 **para** evitar a publicação de uma escala com cobertura inadequada.
 
-**Prioridade:** Alta
+**Prioridade:** 
 
 ### Critérios de Aceitação
 
