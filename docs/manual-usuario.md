@@ -450,32 +450,34 @@ A quantidade `0` é válida, pois pode representar a ausência de profissionais 
 
 Valores excessivamente altos podem representar erros de digitação.
 
-A equipe propõe o limite máximo de **30 profissionais por especialidade em um único plantão**.
+A equipe ainda está definindo internamente um valor máximo plausível de profissionais por especialidade em um único plantão.
 
-A proposta considera que o Hospital Santa Aurora é uma instituição de médio porte e que as coberturas mínimas exigidas na Sprint 1 são significativamente inferiores a esse valor.
+Enquanto esse valor não for definido, ele será representado temporariamente por **X** na documentação.
 
-Dessa forma, a equipe considera que quantidades superiores a 30 profissionais de uma mesma especialidade em um único plantão podem indicar um possível erro de digitação.
+Depois que a equipe definir um valor numérico e sua justificativa, a proposta será apresentada ao cliente/P2 para validação.
 
-### Limite máximo proposto
-
-```text
-30 profissionais por especialidade
-```
-
-Exemplos considerando a proposta:
+### Limite máximo
 
 ```text
-0  → válido
-1  → válido
-30 → válido
-31 → inválido
+X profissionais por especialidade
 ```
 
-**Status:** Pendente de validação pelo cliente/P2.
+O símbolo **X é apenas uma representação temporária na documentação** e não corresponde a um valor numérico definitivo.
 
-Enquanto o cliente/P2 não validar formalmente esse valor, o limite de 30 deverá ser tratado como uma proposta da equipe e não como uma regra definitiva do produto.
+Após a definição e validação, a regra será:
 
-Após a validação, esta seção deverá ser atualizada para registrar o limite como regra aprovada.
+```text
+0 até X → valores válidos
+Acima de X → valor inválido
+```
+
+A quantidade `0` continuará sendo válida, pois pode representar ausência de profissionais disponíveis em determinada especialidade.
+
+**Status:** Em definição pela equipe.
+
+Após a equipe definir o valor, esta seção deverá ser atualizada com a proposta concreta.
+
+Depois da validação pelo cliente/P2, o limite poderá ser considerado uma regra definitiva do sistema.
 
 ---
 
@@ -737,7 +739,9 @@ Para realizar uma nova análise, os dados deverão ser inseridos novamente.
 | Turno inexistente | Opção inválida e análise encerrada |
 | Todos os dados válidos | Sistema realiza normalmente a análise |
 
-O limite máximo atualmente proposto pela equipe é de 30 profissionais por especialidade, porém permanece pendente de validação pelo cliente/P2.
+O limite máximo de profissionais por especialidade ainda está **em definição pela equipe** e é representado temporariamente por **X**.
+
+Somente após a definição interna e a validação do cliente/P2 esse limite será considerado uma regra definitiva.
 
 ---
 
@@ -750,7 +754,7 @@ Durante a Sprint Review, a equipe deverá estar preparada para demonstrar pelo m
 3. uma tentativa de informar um dado impossível;
 4. uma tentativa de selecionar uma opção inválida.
 
-Caso o limite máximo proposto seja validado antes da Review, a equipe também poderá demonstrar:
+Depois que o limite máximo for definido pela equipe e validado pelo cliente/P2, também poderão ser demonstrados:
 
 5. uma quantidade exatamente igual ao limite máximo;
 6. uma quantidade superior ao limite máximo.
@@ -816,9 +820,9 @@ Quantidades negativas não são aceitas.
 
 A quantidade `0` é válida e representa que não existem profissionais disponíveis naquela especialidade.
 
-A equipe também propôs o limite máximo de 30 profissionais por especialidade.
+O limite máximo de profissionais por especialidade ainda está sendo definido pela equipe e é representado temporariamente por **X**.
 
-Caso esse limite seja validado pelo cliente/P2, valores superiores a 30 serão considerados inválidos.
+Depois que a equipe definir o valor e o cliente/P2 validá-lo, quantidades superiores ao limite aprovado serão consideradas inválidas.
 
 ---
 
@@ -1052,4 +1056,6 @@ O usuário deverá conseguir realizar todo o processo através do console do Vis
 
 Nesta Sprint, uma execução poderá analisar um único plantão.
 
-O limite máximo atualmente proposto pela equipe é de 30 profissionais por especialidade e permanece pendente de validação pelo cliente/P2.
+O limite máximo de profissionais por especialidade ainda está **em definição pela equipe**, sendo representado temporariamente por **X**.
+
+Depois que a equipe definir um valor plausível, ele deverá ser apresentado ao cliente/P2 para validação antes de se tornar uma regra definitiva do sistema.
